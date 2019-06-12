@@ -5,6 +5,8 @@ __pycache__/
 
 # C extensions
 *.so
+*.o
+*.c
 
 # Distribution / packaging
 .Python
@@ -46,6 +48,7 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
+TEST-*.xml
 
 # Translations
 *.mo
@@ -100,3 +103,12 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# Local files
+*.dump
+*.dump.gz
+*.local.cfg
+*.swp
+*.swo
+tmp/
+.vscode/
