@@ -15,7 +15,6 @@ from {{ cookiecutter.project_slug }} import {{ cookiecutter.project_slug }}
 {%- if cookiecutter.use_pytest == 'y' %}
 def test_{{ cookiecutter.project_slug|title }}():
     assert 1 + 1 == 2
-{%- endif %}
 {%- else %}
 class Test{{ cookiecutter.project_slug|title }}(unittest.TestCase):
     """Tests for `{{ cookiecutter.project_slug }}` package."""
