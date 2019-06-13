@@ -60,9 +60,6 @@ test: ## run tests quickly with the default Python
 	python setup.py test
 {%- endif %}
 
-test-all: ## run tests on every Python version with tox
-	tox
-
 coverage: ## check code coverage quickly with the default Python
 {%- if cookiecutter.use_pytest == 'y' %}
 	coverage run --source {{ cookiecutter.project_slug }} -m pytest
@@ -80,9 +77,6 @@ docs: ## generate Sphinx HTML documentation, including API docs
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	$(BROWSER) docs/_build/html/index.html
-
-servedocs: docs ## compile the docs watching for changes
-	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
 
 release: dist ## package and upload a release
 	twine upload dist/*
