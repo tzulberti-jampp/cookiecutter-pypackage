@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import shutil
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
@@ -21,3 +22,6 @@ if __name__ == '__main__':
 
     if '{{ cookiecutter.is_library }}' == 'n':
         remove_file('docs/deploy_notes.rst')
+
+    if os.path.exists('.git'):
+        shutil.move('pre-commit', '.git/hooks/pre-commit')
