@@ -28,6 +28,22 @@ Features
 
 * TODO
 
+
+{%- if cookiecutter.is_library %}
+Release
+=======
+
+- Check the test results on `Jenkins <https://ci.jampp.com/{{ cookiecutter.project_slug }}>`__
+- Update the changelog release date on `CHANGELOG.rst`__
+- Commit the changes to master (there is no need to do an PR in this case)
+
+  .. code-block:: console
+
+      $ git commit CHANGELOG -m 'New release'
+
+- Run the `Jenkins job <https://ci.jampp.com/{{ cookiecutter.project_slug }}_release>`__ to do the release
+{% endif %}
+
 Credits
 =======
 

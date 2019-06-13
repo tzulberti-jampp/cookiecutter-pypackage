@@ -16,7 +16,7 @@ More information can be found HERE:
 
 
 v{{ cookiecutter.version }} - Unreleased
-=====================
+===================
 
 Major
 -----

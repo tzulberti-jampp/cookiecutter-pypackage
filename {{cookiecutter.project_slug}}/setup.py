@@ -3,11 +3,11 @@
 
 """The setup script."""
 
-import sys
-import multiprocessing
 from os import path
 from setuptools import setup, find_packages
 {%- if cookiecutter.use_cython == 'y' %}
+import sys
+import multiprocessing
 from setuptools import Extension
 from Cython.Build import cythonize
 {%- endif %}
@@ -234,7 +234,7 @@ setup(
             'CHANGELOG.rst',
             'requirements.txt',
             'requirements_dev.txt',
-            {%- if 'Not open source' != '{{ cookiecutter.open_source_license }}'%}'LICENSE',{%- endif %}
+            {% if 'Not open source' != '{{ cookiecutter.open_source_license }}'%}'LICENSE',{%- endif %}
         ]),
     ],
     keywords='{{ cookiecutter.project_slug }}',

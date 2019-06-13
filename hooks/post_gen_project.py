@@ -18,4 +18,6 @@ if __name__ == '__main__':
         remove_file('docs/authors.rst')
         remove_file('CONTRIBUTING.rst')
         remove_file('docs/contributing.rst')
-        remove_file('LICENSE')
+
+    if '{{ cookiecutter.is_library }}' == 'n':
+        remove_file('docs/deploy_notes.rst')
