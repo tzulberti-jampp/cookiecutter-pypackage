@@ -1,6 +1,7 @@
 {
   "full_name": "Jampp",
   "email": "tech@jampp.com",
+  "is_library": "n",
   "github_username": "jampp",
   "project_name": "Python Project",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
@@ -8,8 +9,6 @@
   "version": "0.1.0",
   "use_pytest": "y",
   "use_pypi_deployment_with_travis": "n",
-  "add_pyup_badge": "n",
-  "command_line_interface": ["No command-line interface"],
   "create_author_file": "n",
   "use_cython": "n",
   "open_source_license": [ "Not open source", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3"]

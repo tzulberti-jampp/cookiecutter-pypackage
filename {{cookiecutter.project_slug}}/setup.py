@@ -19,8 +19,8 @@ with open('CHANGELOG.rst') as history_file:
     history = history_file.read()
 
 
-def parse_requirements_txt():
-    requirements = open(path.join(path.dirname(__file__), 'requirements.txt')).readlines()
+def parse_requirements_txt(filename='requirements.txt'):
+    requirements = open(path.join(path.dirname(__file__), filename)).readlines()
     # remove whitespaces
     requirements = [line.strip().replace(' ', '') for line in requirements]
     # remove all the requirements that are comments
@@ -219,16 +219,17 @@ setup(
     ],
     description="{{ cookiecutter.project_short_description }}",
     install_requires=parse_requirements_txt(),
+    extras_require={'dev': parse_requirements_txt('requirements_dev.txt')},
 {%- if cookiecutter.open_source_license in license_classifiers %}
-    license="{{ cookiecutter.open_source_license }}",
+    license='{{ cookiecutter.open_source_license }}',
 {%- endif %}
     long_description=readme + '\n\n' + history,
     include_package_data=True,
     package_data={
-        '': ['*.pxd', '*.pyx', 'VERSION']
+        '': ['*.pxd', '*.pyx']
     }
     data_files = [
-        ("", ["LICENSE", "README.rst", "CHANGELOG.rst", "requirements.txt"])
+        ('', ['LICENSE', 'README.rst', 'CHANGELOG.rst', 'requirements.txt', 'requirements_dev.txt'])
     ],
     keywords='{{ cookiecutter.project_slug }}',
     name='{{ cookiecutter.project_slug }}',
