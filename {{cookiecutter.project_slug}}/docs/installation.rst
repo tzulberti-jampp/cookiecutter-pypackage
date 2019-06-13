@@ -6,7 +6,7 @@ Installation
 
 
 Stable release
---------------
+==============
 
 To install {{ cookiecutter.project_name }}, run this command in your terminal:
 
@@ -18,7 +18,7 @@ This is the preferred method to install {{ cookiecutter.project_name }}, as it w
 
 
 From sources
-------------
+============
 
 The sources for {{ cookiecutter.project_name }} can be downloaded from the `Github repo`_.
 

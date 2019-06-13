@@ -1,3 +1,4 @@
+==========
 Change Log
 ==========
 
@@ -15,22 +16,21 @@ More information can be found HERE:
 
 
 v{{ cookiecutter.version }} - Unreleased
--------------------
+=====================
 
 Major
-+++++
-
+-----
 
 Added
-+++++
+-----
 
 Changed
-+++++++
+-------
 
 Bugfixes
-++++++++
+--------
 
 Technical Task
-++++++++++++++
+--------------
 
 

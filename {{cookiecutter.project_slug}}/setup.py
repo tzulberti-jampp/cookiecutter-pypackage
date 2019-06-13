@@ -209,14 +209,15 @@ if cythonize is not None:
     'GNU General Public License v3': 'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'
 } %}
 
+
 setup(
     author="{{ cookiecutter.full_name.replace('\"', '\\\"') }}",
     author_email='{{ cookiecutter.email }}',
-    classifiers=[
 {%- if cookiecutter.open_source_license in license_classifiers %}
+    classifiers=[
         '{{ license_classifiers[cookiecutter.open_source_license] }}',
-{%- endif %}
     ],
+{%- endif %}
     description="{{ cookiecutter.project_short_description }}",
     install_requires=parse_requirements_txt(),
     extras_require={'dev': parse_requirements_txt('requirements_dev.txt')},
@@ -227,15 +228,13 @@ setup(
     include_package_data=True,
     package_data={
         '': ['*.pxd', '*.pyx']
-    }
+    },
     data_files=[
         ('', ['LICENSE', 'README.rst', 'CHANGELOG.rst', 'requirements.txt', 'requirements_dev.txt'])
     ],
     keywords='{{ cookiecutter.project_slug }}',
     name='{{ cookiecutter.project_slug }}',
-
     packages=find_packages(include=['{{ cookiecutter.project_slug }}']),
-
     setup_requires=[{%- if cookiecutter.use_pytest == 'y' %}'pytest-runner',{%- endif %} ],
     test_suite='tests',
     tests_require=[{%- if cookiecutter.use_pytest == 'y' %}'pytest',{%- endif %} ],
