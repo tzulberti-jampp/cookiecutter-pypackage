@@ -34,7 +34,7 @@ Release
 =======
 
 - Check the test results on `Jenkins <https://ci.jampp.com/{{ cookiecutter.project_slug }}>`__
-- Update the changelog release date on `CHANGELOG <CHANGELOG.rst>`__
+- Update the changelog release date on :ref:`changelog`
 - Commit the changes to master (there is no need to do an PR in this case)
 
   .. code-block:: console
