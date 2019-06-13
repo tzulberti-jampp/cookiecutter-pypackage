@@ -29,7 +29,7 @@ Features
 * TODO
 
 
-{% if cookiecutter.is_library %}
+{% if cookiecutter.is_library == 'y' %}
 Release
 =======
 
