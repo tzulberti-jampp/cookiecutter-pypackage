@@ -191,7 +191,6 @@ if cythonize is not None:
                         # touch source
                         os.utime(src, None)
 
-
     ext_modules = cythonize(
         extension_modules,
         include_path=include_dirs,
@@ -230,7 +229,13 @@ setup(
         '': ['*.pxd', '*.pyx']
     },
     data_files=[
-        ('', ['LICENSE', 'README.rst', 'CHANGELOG.rst', 'requirements.txt', 'requirements_dev.txt'])
+        ('', [
+            'README.rst',
+            'CHANGELOG.rst',
+            'requirements.txt',
+            'requirements_dev.txt',
+            {%- if 'Not open source' != '{{ cookiecutter.open_source_license }}'%}'LICENSE',{%- endif %}
+        ]),
     ],
     keywords='{{ cookiecutter.project_slug }}',
     name='{{ cookiecutter.project_slug }}',

@@ -10,7 +10,7 @@
 #       libjampp==1.0.0
 #       libcore==1.2.3
 # 
-{% else %}
+{%- else %}
 # The depenencies must be fixed to a specific version
 #
 #   do this:
