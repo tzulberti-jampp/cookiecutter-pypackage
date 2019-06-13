@@ -1,4 +1,4 @@
-{% if cookiecutter.is_library == 'y' -%}
+{%- if cookiecutter.is_library == 'y' %}
 # The depenencies must not be fixed to a specific version, it you might
 # limit the min version required. For example: 
 #
@@ -10,7 +10,6 @@
 #       libjampp==1.0.0
 #       libcore==1.2.3
 # 
-
 {% else %}
 # The depenencies must be fixed to a specific version
 #

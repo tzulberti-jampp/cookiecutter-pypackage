@@ -228,7 +228,7 @@ setup(
     package_data={
         '': ['*.pxd', '*.pyx']
     }
-    data_files = [
+    data_files=[
         ('', ['LICENSE', 'README.rst', 'CHANGELOG.rst', 'requirements.txt', 'requirements_dev.txt'])
     ],
     keywords='{{ cookiecutter.project_slug }}',
@@ -239,10 +239,10 @@ setup(
     setup_requires=[{%- if cookiecutter.use_pytest == 'y' %}'pytest-runner',{%- endif %} ],
     test_suite='tests',
     tests_require=[{%- if cookiecutter.use_pytest == 'y' %}'pytest',{%- endif %} ],
-
-    ext_modules={%- if cookiecutter.use_cython == 'y' %}ext_modules{%- endif %}
-    cmdclass={%- if cookiecutter.use_cython == 'y' %}cmd_class{%- endif %}
-
+    {%- if cookiecutter.use_cython == 'y' %}
+    ext_modules=ext_modules,
+    cmdclass=cmd_class,
+    {%- endif %}
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}',
     version='{{ cookiecutter.version }}',
     zip_safe=False,
