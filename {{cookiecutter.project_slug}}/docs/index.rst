@@ -9,9 +9,9 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
    installation
    usage
    modules
-   contributing
-   {% if cookiecutter.create_author_file == 'y' -%}authors
-   {% endif -%}changelog
+   {% if cookiecutter.open_source_license != 'Not open source' -%}authors{% endif %}
+   {% if cookiecutter.open_source_license != 'Not open source' -%}contributing{% endif %}
+   changelog
 
 Indices and tables
 ==================
