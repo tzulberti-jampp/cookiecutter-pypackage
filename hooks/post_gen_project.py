@@ -10,7 +10,7 @@ def complete_path(filepath):
 
 
 def remove_file(filepath):
-    os.remove(complete_path(filepath)
+    os.remove(complete_path(filepath))
 
 
 if __name__ == '__main__':
