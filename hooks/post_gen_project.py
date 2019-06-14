@@ -5,8 +5,12 @@ import shutil
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
 
+def complete_path(filepath):
+    return os.path.join(PROJECT_DIRECTORY, filepath)
+
+
 def remove_file(filepath):
-    os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
+    os.remove(complete_path(filepath)
 
 
 if __name__ == '__main__':
@@ -24,4 +28,9 @@ if __name__ == '__main__':
         remove_file('docs/deploy_notes.rst')
 
     if os.path.exists('.git'):
-        shutil.move('pre-commit', '.git/hooks/pre-commit')
+        shutil.move(
+            complete_path('pre-commit'),
+            complete_path('.git/hooks/pre-commit')
+        )
+    else:
+        remove_file('pre-commit')
