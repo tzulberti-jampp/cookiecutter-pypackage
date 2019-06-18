@@ -5,12 +5,14 @@
 
 from os import path
 from setuptools import setup, find_packages
-{%- if cookiecutter.use_cython == 'y' %}
+{% if cookiecutter.use_cython == 'y' %}
 import sys
+import os
 import multiprocessing
 from setuptools import Extension
 from Cython.Build import cythonize
-{%- endif %}
+from setuptools.command.build_ext import build_ext
+{% endif %}
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -30,7 +32,7 @@ def parse_requirements_txt(filename='requirements.txt'):
     return requirements
 
 
-{%- if cookiecutter.use_cython == 'y' %}
+{% if cookiecutter.use_cython == 'y' %}
 def solve_transitive_dependencies(cython_extensions):
     """
     Solves the dependencies based on the information of its dependencies.
@@ -138,24 +140,26 @@ else:
     parallel = multiprocessing.cpu_count()
 
 if '--no-cython' in sys.argv:
-    cythonize = None
+    cythonize = None  # noqa
     del sys.argv[sys.argv.index('--no-cython')]
     try:
         import cython
+
         # used to solve error when not using cython because it raises an
         # error that AttributeError: 'module' object has no attribute 'optimize'
         class CythonOptimizeMock(object):
-            use_switch = lambda *p, **kw : (lambda f : f)
+            use_switch = lambda *p, **kw: (lambda f: f)  # noqa
 
         cython.optimize = CythonOptimizeMock()
     except ImportError:
         pass
 
-
+cmd_class = {}
 if cythonize is not None:
     if parallel is not None:
         try:
             from multiprocessing.pool import ThreadPool
+
             class parallel_build_ext(build_ext):
                 def build_extensions(self):
                     # First, sanity-check the 'extensions' list
@@ -175,10 +179,10 @@ if cythonize is not None:
     try:
         from Cython.Utils import file_newer_than, modification_time
     except ImportError:
-        #lint:disable
+        # lint:disable
         file_newer_than = None
         modification_time = None
-        #lint:enable
+        # lint:enable
     if file_newer_than is not None:
         # Work around broken dependency tracking in cython
         basepath = os.path.dirname(__file__)
@@ -197,8 +201,7 @@ if cythonize is not None:
         nthreads=parallel,
         force=force_cython
     )
-{%- else %}
-{%- endif %}
+{% endif %}
 
 {%- set license_classifiers = {
     'MIT license': 'License :: OSI Approved :: MIT License',
